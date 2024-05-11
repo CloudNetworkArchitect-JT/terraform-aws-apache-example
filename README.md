@@ -1,7 +1,6 @@
-Terraform Module to provision an EC2 Instance that is running Apache. Not intended for production use. Just showcashing how to create a public module in Terraform Registry.
+Terraform Module to provision an EC2 Instance that is running Apache. Not intended for production use.
 
-...hcl
-terraform {
+...hcl terraform {
 
 }
 
@@ -21,5 +20,4 @@ server_name = "Apache Example Server"
 output "public_ip" {
 value = module.apache.public_ip
 }
-
 ...
