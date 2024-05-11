@@ -1,11 +1,11 @@
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "You'll need to have a VPC ready to go. Provide the VPC ID here"
 }
 
 variable "my_ip" {
   type        = string
-  description = "Provide your IPv4 address here. This is the intended format,"<Your OWN IP>/32""
+  description = "Provide your IPv4 address here. This is the intended format,<Your OWN IP>/32"
 }
 
 variable "public_key" {
