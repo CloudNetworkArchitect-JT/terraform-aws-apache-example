@@ -22,7 +22,7 @@ variable "instance_type" {
 variable "server_name" {
   type        = string
   default     = "Apache Example Server"
-  description = "Provide a server name. It defaults to 'Apache Example Server'."
+  description = "Provide a server name. It defaults to Apache Example Server."
 }
 
 # Input Variables
