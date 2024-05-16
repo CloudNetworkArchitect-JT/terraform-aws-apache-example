@@ -6,6 +6,7 @@ variable "vpc_id" {
 variable "availability_zone" {
   description = "The availability zone for the subnet"
   type        = string
+  default     = "us-east-1a"
 }
 
 variable "my_ip" {
