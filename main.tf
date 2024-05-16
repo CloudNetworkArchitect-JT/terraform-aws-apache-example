@@ -20,17 +20,14 @@ data "aws_ami" "amazon-linux-2" {
 data "aws_vpc" "main" {
   id = var.vpc_id
 }
-data "aws_subnet" "subnet_ids" {
-  vpc_id = data.aws_vpc.main.id
 
+data "aws_subnet" "selected" {
   filter {
-    name   = "tag:Environment"
-    values = ["dev"]
+    name   = "availability-zone"
+    values = [var.availability_zone]
   }
-  filter {
-    name   = "tag:Name"
-    values = ["my-vpc-public-us-east-1a"]
-  }
+
+  vpc_id = data.aws_vpc.main.id
 }
 
 resource "aws_security_group" "sg_my_server" {
@@ -89,7 +86,7 @@ data "template_file" "user_data" {
 
 resource "aws_instance" "my_server" {
   ami       = data.aws_ami.amazon-linux-2.id
-  subnet_id = data.aws_subnet.subnet_ids.id
+  subnet_id = data.aws_subnet.selected.id
   # modified the previous aws_subnet_ids deprecated data source and replaced it with the its intended replacement aws_subnet
 
   # This fix resolution is associated to the reported issue https://github.com/hashicorp/terraform-provider-aws/issues/20592 

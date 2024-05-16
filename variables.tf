@@ -3,6 +3,11 @@ variable "vpc_id" {
   description = "You'll need to have a VPC ready to go. Provide the VPC ID here"
 }
 
+variable "availability_zone" {
+  description = "The availability zone for the subnet"
+  type        = string
+}
+
 variable "my_ip" {
   type        = string
   description = "Provide your IPv4 address here. This is the intended format,<Your OWN IP>/32"
